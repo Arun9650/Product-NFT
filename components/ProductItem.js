@@ -28,7 +28,7 @@ export default function ProductItem(props) {
             </Link>
             <CardFooter divider className='mx-4 p-5 flex justify-between'>
                 <div className=''>
-                 <div className='font-Roboto text-[#0e0a23] truncate w-28'>{product.name}</div>
+                 <div className='font-Roboto text-[#0e0a23] truncate w-28'>{product.title}</div>
                     <div className='font-light '> {dollarUS.format(product.price)}</div>
                 </div>
                 <div className=''>
