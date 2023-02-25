@@ -37,16 +37,32 @@ export default function Home({ products }) {
     </Layout>
   )
 }
-export async function getServerSideProps() {
-  await db.connect();
-  const products = await Product.find().lean();
+// export async function getServerSideProps() {
+//   await db.connect();
+//   console.log("db",db)
+//   const products = await Product.find().lean();
+//   console.log("products",products)
 
-  return {
-    props: {
-      // products: products.map(db.convertDocToObj)
-      products: products ? JSON.parse(JSON.stringify(products)) : null 
+//   return {
+//     props: {
+//       // products: products.map(db.convertDocToObj)
+//       products: products ? JSON.parse(JSON.stringify(products)) : null 
 
-    }
+//     }
+//   }
+
+// }
+
+export async function getStaticProps(context) {
+await db.connect();
+const products = await Product.find().lean();
+console.log("arun prodcuts ",products)
+
+return {
+  props: {
+    // products: products.map(db.convertDocToObj)
+    products: products ? JSON.parse(JSON.stringify(products)) : null
+
   }
-
+}
 }
