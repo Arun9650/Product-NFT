@@ -88,7 +88,8 @@ export async function getServerSideProps(context) {
     const {params} = context;
     const {_id} = params;
     await db.connect();
-
+    console.log("params",params)
+    
     const product = await Product.findOne({_id}).lean();
     await db.disconnect();
 
